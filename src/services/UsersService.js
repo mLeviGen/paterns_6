@@ -3,10 +3,10 @@ import { AdminRepository } from '../repositories/AdminRepository.js';
 import { SuperAdminRepository } from '../repositories/SuperAdminRepository.js';
 
 export class UsersService {
-    constructor() {
-        this.usersRepository = new UsersRepository();
-        this.adminsRepository = new AdminRepository();
-        this.superAdminsRepository = new SuperAdminRepository();
+    constructor(usersRepository, adminsRepository, superAdminsRepository) {
+        this.usersRepository = usersRepository;
+        this.adminsRepository = adminsRepository;
+        this.superAdminsRepository = superAdminsRepository;
     }
     async createUser(user) { return await this.usersRepository.insert(user); }
     async getAllUsers() { return await this.usersRepository.findAll(); }
