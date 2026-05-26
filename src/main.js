@@ -3,6 +3,10 @@ import { AdminsService } from './services/AdminsService.js';
 import { SuperAdminService } from './services/SuperAdminService.js';
 import { Database } from './db/db.js';
 
+import { UsersRepository } from './repositories/UsersRepository.js';
+import { AdminRepository } from './repositories/AdminRepository.js';
+import { SuperAdminRepository } from './repositories/SuperAdminRepository.js';
+
 async function run() {
     const db = Database.getInstance();
     
