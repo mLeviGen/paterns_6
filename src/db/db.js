@@ -56,6 +56,7 @@ export class Database {
     }
 
     async clearTables() {
+
     await this.executeQuery('TRUNCATE users RESTART IDENTITY CASCADE;');
 }
 
