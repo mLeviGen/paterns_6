@@ -9,9 +9,13 @@ async function run() {
     try {
         await db.clearTables(); 
         
-        const usersService = new UsersService();
-        const adminsService = new AdminsService();
-        const superAdminService = new SuperAdminService();
+        const usersRepo = new UsersRepository();
+        const adminsRepo = new AdminRepository();
+        const superAdminsRepo = new SuperAdminRepository();
+
+        const usersService = new UsersService(usersRepo, adminsRepo, superAdminsRepo);
+        const adminsService = new AdminsService(adminsRepo);
+        const superAdminService = new SuperAdminService(superAdminsRepo);
         await db.createTables();
 
         const u1 = await usersService.createUser({ name: "Alex Doe", email: "alex@mail.com" });
