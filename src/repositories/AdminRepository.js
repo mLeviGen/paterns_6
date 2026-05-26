@@ -17,7 +17,7 @@ export class AdminRepository extends BaseRepository {
         const result = await this.db.executeQuery('SELECT * FROM admins;');
         return result.rows;
     }
-    async deleteByUserId(userId) {
+    async delete(userId) {
         const result = await this.db.executeQuery(
             'DELETE FROM admins WHERE user_id = $1 RETURNING *;',
             [userId]
